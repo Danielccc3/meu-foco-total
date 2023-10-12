@@ -7,11 +7,11 @@ class Timer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('ENTROU')),
+      appBar: AppBar(title: const Text('ENTROU')),
       drawer: Drawer(
         child: ListView(
           children: [
-            ListTile(leading: Icon(Icons.logout), title: Text('Logout'), onTap: (){
+            ListTile(leading: const Icon(Icons.logout), title: const Text('Logout'), onTap: (){
               AuthService().logoff();
             },),
           ],

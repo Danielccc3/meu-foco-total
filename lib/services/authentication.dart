@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
-  FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
   Future<String?> signUpUsers({
     required String nome,
@@ -18,8 +18,10 @@ class AuthService {
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         return "E-mail is already registered";
+      } if (e.code == 'invalid-email') {
+        return "Invalid email";
       }
-      return "Unknown error, please try again";
+      return 'error ae';
     }
   }
 
