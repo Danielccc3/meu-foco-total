@@ -12,13 +12,18 @@ class AuthService {
       UserCredential userCredential = await _firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: senha);
 
-      await userCredential.user!.updateDisplayName(nome);
+      print(userCredential.user!.updateDisplayName(nome));
+      print(userCredential.user!.email);
+      print(userCredential.user!.uid);
+
+      
 
       return null;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         return "E-mail is already registered";
-      } if (e.code == 'invalid-email') {
+      }
+      if (e.code == 'invalid-email') {
         return "Invalid email";
       }
       return 'error ae';
@@ -38,4 +43,6 @@ class AuthService {
   Future<void> logoff() async {
     return _firebaseAuth.signOut();
   }
+
+
 }
