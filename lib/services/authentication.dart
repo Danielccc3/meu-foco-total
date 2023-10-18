@@ -11,12 +11,7 @@ class AuthService {
     try {
       UserCredential userCredential = await _firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: senha);
-
-      print(userCredential.user!.updateDisplayName(nome));
-      print(userCredential.user!.email);
-      print(userCredential.user!.uid);
-
-      
+      userCredential.user!.updateDisplayName(nome);
 
       return null;
     } on FirebaseAuthException catch (e) {
@@ -43,6 +38,4 @@ class AuthService {
   Future<void> logoff() async {
     return _firebaseAuth.signOut();
   }
-
-
 }

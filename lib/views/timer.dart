@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:foco_alternativo/services/authentication.dart';
 import 'package:foco_alternativo/widgets/utils.dart';
@@ -21,6 +22,9 @@ class _TimerState extends State<Timer> {
     });
   }
 
+  String? uid = FirebaseAuth.instance.currentUser?.uid;
+  String? email = FirebaseAuth.instance.currentUser?.email;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,14 +34,19 @@ class _TimerState extends State<Timer> {
           padding: EdgeInsets.zero,
           children: [
             UserAccountsDrawerHeader(
-              accountName: Text('TESTE'),
-              accountEmail: Text('Teste@gmail'),
+              accountName: Text('ID: ' + uid!),
+              accountEmail: Text('Email: ' + email!),
               currentAccountPicture: _image != null
                   ? CircleAvatar(
-                    child: ClipOval(
-                        child: Image.memory(_image!, width: 90, height: 90, fit: BoxFit.cover,),
+                      child: ClipOval(
+                        child: Image.memory(
+                          _image!,
+                          width: 90,
+                          height: 90,
+                          fit: BoxFit.cover,
+                        ),
                       ),
-                  )
+                    )
                   : CircleAvatar(
                       child: ClipOval(
                         child: Image.asset(

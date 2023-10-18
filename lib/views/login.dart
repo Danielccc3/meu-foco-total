@@ -105,16 +105,14 @@ class _LogInState extends State<LogIn> {
                         children: [
                           Text(
                             "Login",
-                            style: TextStyle(
-                                color: Colors.white, fontSize: 50),
+                            style: TextStyle(color: Colors.white, fontSize: 50),
                           ),
                           SizedBox(
                             height: 10,
                           ),
                           Text(
                             "Welcome Back",
-                            style: TextStyle(
-                                color: Colors.white, fontSize: 28),
+                            style: TextStyle(color: Colors.white, fontSize: 28),
                           ),
                         ],
                       ),
@@ -320,6 +318,9 @@ class _LogInState extends State<LogIn> {
                                       if (value.length < 5) {
                                         return 'The confirm password is too short';
                                       }
+                                      if (value != passwordController.text) {
+                                        return 'Please enter the same passwords';
+                                      }
                                       return null;
                                     },
                                   )
@@ -383,6 +384,11 @@ class _LogInState extends State<LogIn> {
                                   style: const TextStyle(fontSize: 18)))
                         ],
                       ),
+                      Visibility(
+                          visible: !queroEntrar,
+                          child: const SizedBox(
+                            height: 110,
+                          )),
                     ],
                   ),
                 ),
