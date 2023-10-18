@@ -10,7 +10,13 @@ O Meu Foco Total é um aplicativo mobile desenvolvido para para ajudar as pessoa
 
 - Gestão de tempo
 - Eye-tracking para foco quando o usuário estiver utilizando o celular
-- Gerenciamento da tela para usuário que querem ficar fora do celular
+- Gerenciamento da tela para usuário que preferem ficar fora do celular
+
+## Como utilizar
+
+- Instale o CLI do Firebase
+- Digite flutterfire configue e selecione o seu projeto criado na interface do Firebase
+- ...
 
 ## Contribuição
 
