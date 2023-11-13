@@ -2,6 +2,11 @@ import 'dart:typed_data';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:foco_alternativo/services/authentication.dart';
+import 'package:foco_alternativo/views/devices_connected.dart';
+import 'package:foco_alternativo/views/external_focus.dart';
+import 'package:foco_alternativo/views/history.dart';
+import 'package:foco_alternativo/views/home_page.dart';
+import 'package:foco_alternativo/views/internal_focus.dart';
 import 'package:foco_alternativo/widgets/utils.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -12,14 +17,14 @@ import 'package:foco_alternativo/widgets/timecontroller.dart';
 import 'package:foco_alternativo/widgets/timeoptions.dart';
 import 'package:foco_alternativo/widgets/timercard.dart';
 
-class TimerScreen extends StatefulWidget {
-  const TimerScreen({super.key});
+class TimerScreenPomodoro extends StatefulWidget {
+  const TimerScreenPomodoro({super.key});
 
   @override
-  State<TimerScreen> createState() => _TimerScreenState();
+  State<TimerScreenPomodoro> createState() => _TimerScreenPomodoroState();
 }
 
-class _TimerScreenState extends State<TimerScreen> {
+class _TimerScreenPomodoroState extends State<TimerScreenPomodoro> {
   Uint8List? _image;
 
   void selectImage() async {
@@ -88,26 +93,76 @@ class _TimerScreenState extends State<TimerScreen> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.devices),
-              title: Text('Connected devices'),
-              onTap: () => null,
+              leading: Icon(Icons.home),
+              title: Text('Home'),
+              onTap: () => {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomePage())),
+              },
             ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.timer),
+              title: Text('Pomodoro'),
+              onTap: () => {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => TimerScreenPomodoro())),
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.center_focus_strong),
+              title: Text('External focus'),
+              onTap: () => {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => TimerScreenExternal())),
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.face),
+              title: Text('Internal focus'),
+              onTap: () => {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => TimerScreenInternal())),
+              },
+            ),
+            Divider(),
+              ListTile(
+                leading: Icon(Icons.devices),
+                title: Text('Connected devices'),
+                onTap: () => {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => Devices())),
+                },
+              ),
             ListTile(
               leading: Icon(Icons.notifications),
               title: const Text('Requests'),
-              onTap: () => null,
+              onTap: () => {},
             ),
             Divider(),
             ListTile(
               leading: Icon(Icons.history),
               title: Text('Personal History'),
-              onTap: () => null,
+              onTap: () => {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => History())),
+              },
             ),
             Divider(),
             ListTile(
               leading: Icon(Icons.settings),
               title: Text('Redefine password'),
-              onTap: () => null,
+              onTap: () => {},
             ),
             ListTile(
               leading: Icon(Icons.add_a_photo),

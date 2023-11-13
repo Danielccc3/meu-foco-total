@@ -1,10 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:foco_alternativo/timescreen.dart';
+import 'package:foco_alternativo/views/home_page.dart';
 import 'package:foco_alternativo/timeservice.dart';
 import 'package:foco_alternativo/views/login.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:foco_alternativo/views/timer.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
@@ -45,7 +44,7 @@ class RouterScreen extends StatelessWidget {
       stream: FirebaseAuth.instance.userChanges(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return TimerScreen();
+          return HomePage();
         } else {
           return const LogIn();
         }
