@@ -6,6 +6,7 @@ import 'package:foco_alternativo/views/devices_connected.dart';
 import 'package:foco_alternativo/views/external_focus.dart';
 import 'package:foco_alternativo/views/home_page.dart';
 import 'package:foco_alternativo/views/internal_focus.dart';
+import 'package:foco_alternativo/views/redefine_password.dart';
 import 'package:foco_alternativo/views/timescreen.dart';
 import 'package:foco_alternativo/widgets/utils.dart';
 import 'package:image_picker/image_picker.dart';
@@ -32,7 +33,6 @@ class _HistoryState extends State<History> {
   String? email = FirebaseAuth.instance.currentUser?.email;
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         appBar: AppBar(
           elevation: 0,
@@ -120,10 +120,8 @@ class _HistoryState extends State<History> {
                 leading: Icon(Icons.devices),
                 title: Text('Connected devices'),
                 onTap: () => {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => Devices())),
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Devices())),
                 },
               ),
               ListTile(
@@ -132,21 +130,24 @@ class _HistoryState extends State<History> {
                 onTap: () => {},
               ),
               Divider(),
-            ListTile(
-              leading: Icon(Icons.history),
-              title: Text('Personal History'),
-              onTap: () => {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => History())),
-              },
-            ),
+              ListTile(
+                leading: Icon(Icons.history),
+                title: Text('Personal History'),
+                onTap: () => {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => History())),
+                },
+              ),
               Divider(),
               ListTile(
                 leading: Icon(Icons.settings),
                 title: Text('Redefine password'),
-                onTap: () => {},
+                onTap: () => {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => RedefinePassword())),
+                },
               ),
               ListTile(
                 leading: Icon(Icons.add_a_photo),
@@ -176,15 +177,16 @@ class _HistoryState extends State<History> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
               decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                    colors: [
-                      Colors.blue.shade500,
-                      Colors.blue.shade600,
-                      Colors.blue.shade900
-                    ],
-                  ),),
+                gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [
+                    Colors.blue.shade500,
+                    Colors.blue.shade600,
+                    Colors.blue.shade900
+                  ],
+                ),
+              ),
               child: Form(
                 child: SingleChildScrollView(
                   physics: const BouncingScrollPhysics(),

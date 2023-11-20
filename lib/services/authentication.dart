@@ -38,4 +38,5 @@ class AuthService {
   Future<void> logoff() async {
     return _firebaseAuth.signOut();
   }
+
 }

@@ -6,11 +6,10 @@ import 'package:foco_alternativo/views/external_focus.dart';
 import 'package:foco_alternativo/views/history.dart';
 import 'package:foco_alternativo/views/home_page.dart';
 import 'package:foco_alternativo/views/internal_focus.dart';
+import 'package:foco_alternativo/views/redefine_password.dart';
 import 'package:foco_alternativo/views/timescreen.dart';
 import 'package:foco_alternativo/widgets/utils.dart';
 import 'package:image_picker/image_picker.dart';
-
-
 
 class Devices extends StatefulWidget {
   const Devices({super.key});
@@ -85,7 +84,7 @@ class _DevicesState extends State<Devices> {
                       MaterialPageRoute(builder: (context) => HomePage())),
                 },
               ),
-              Divider(),
+              const Divider(),
               ListTile(
                 leading: Icon(Icons.timer),
                 title: Text('Pomodoro'),
@@ -116,7 +115,7 @@ class _DevicesState extends State<Devices> {
                           builder: (context) => TimerScreenInternal())),
                 },
               ),
-              Divider(),
+              const Divider(),
               ListTile(
                 leading: Icon(Icons.devices),
                 title: Text('Connected devices'),
@@ -130,22 +129,25 @@ class _DevicesState extends State<Devices> {
                 title: const Text('Requests'),
                 onTap: () => {},
               ),
-              Divider(),
-            ListTile(
-              leading: Icon(Icons.history),
-              title: Text('Personal History'),
-              onTap: () => {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => History())),
-              },
-            ),
-              Divider(),
+              const Divider(),
+              ListTile(
+                leading: Icon(Icons.history),
+                title: Text('Personal History'),
+                onTap: () => {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => History())),
+                },
+              ),
+              const Divider(),
               ListTile(
                 leading: Icon(Icons.settings),
                 title: Text('Redefine password'),
-                onTap: () => {},
+                onTap: () => {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => RedefinePassword())),
+                },
               ),
               ListTile(
                 leading: Icon(Icons.add_a_photo),
@@ -159,7 +161,7 @@ class _DevicesState extends State<Devices> {
                 title: Text('Politicies'),
                 onTap: () => null,
               ),
-              Divider(),
+              const Divider(),
               ListTile(
                 leading: const Icon(Icons.logout),
                 title: const Text('Logout'),
@@ -230,7 +232,7 @@ class _DevicesState extends State<Devices> {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 30,
                                   ),
                                   Text('STATUS: (CONNECTED)',
@@ -238,7 +240,7 @@ class _DevicesState extends State<Devices> {
                                 ],
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 40,
                             ),
                             Container(
@@ -274,7 +276,7 @@ class _DevicesState extends State<Devices> {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 30,
                                   ),
                                   Row(

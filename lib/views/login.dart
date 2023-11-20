@@ -6,10 +6,15 @@ class LogIn extends StatefulWidget {
   const LogIn({super.key});
 
   @override
-  State<LogIn> createState() => _LogInState();
+  State<LogIn> createState() => LogInState();
 }
 
-class _LogInState extends State<LogIn> {
+class MyControllers {
+  static final TextEditingController passwordController =
+      TextEditingController();
+}
+
+class LogInState extends State<LogIn> {
   bool queroEntrar = true;
   TextEditingController emailController = TextEditingController();
   TextEditingController nickController = TextEditingController();

@@ -7,6 +7,7 @@ import 'package:foco_alternativo/views/external_focus.dart';
 import 'package:foco_alternativo/views/history.dart';
 import 'package:foco_alternativo/views/home_page.dart';
 import 'package:foco_alternativo/views/internal_focus.dart';
+import 'package:foco_alternativo/views/redefine_password.dart';
 import 'package:foco_alternativo/widgets/utils.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -162,7 +163,10 @@ class _TimerScreenPomodoroState extends State<TimerScreenPomodoro> {
             ListTile(
               leading: Icon(Icons.settings),
               title: Text('Redefine password'),
-              onTap: () => {},
+              onTap: () => {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => RedefinePassword())),
+              },
             ),
             ListTile(
               leading: Icon(Icons.add_a_photo),
